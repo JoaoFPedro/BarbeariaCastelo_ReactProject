@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "azure:start": "directus database migrate:latest && directus start"
+  },
+  "dependencies": {
+    "directus": "9.7",
+    "mssql": "^9.1.3"
+  }
+}
