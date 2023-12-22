@@ -1,0 +1,19 @@
+trigger:
+  - master
+
+variables:
+  - group: production-frontend
+
+stages:
+  - stage: Deploy
+    displayName: Deploy
+    jobs:
+      - job:
+        steps:
+          - task: AzureStaticWebApp@0
+            inputs:
+              app_location: '/'
+              app_build_command: 'yarn run build'
+              output_location: 'build'
+            env:
+              azure_static_web_apps_api_token: $(PIPELINE_DEPLOYMENT_TOKEN)
